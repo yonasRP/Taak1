@@ -76,6 +76,10 @@ Met vriendelijke groet,
                 }
             }
         }
+        public void mail()
+        {
+            //geen idee wat we moeten doen hiermee?
+        }
     }
     public class Adres
     {

@@ -59,7 +59,6 @@
     <Compile Include="AppCommands.cs" />
     <Compile Include="Gereedschap.cs" />
     <Compile Include="Maaltijd.cs" />
-    <Compile Include="MaaltijdEnDrank.cs" />
     <Compile Include="Oefeningen\IntTests.cs" />
     <Compile Include="Oefeningen\Recept.cs" />
     <Compile Include="Oefeningen\StringTest.cs" />

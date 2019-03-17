@@ -32,13 +32,10 @@ namespace DemoConsole
     {
         public void export()
         {
-            //this neemt direct de naam.
             var filepath = "C:/Users/Yonas/Desktop/Data/Menu.csv";
             using (StreamWriter writer = new StreamWriter(new FileStream(filepath,
             FileMode.Create, FileAccess.Write)))
-
             {
-
                 foreach (Maaltijd m in Maaltijden)
                     writer.WriteLine(m.Naam + ": " + m.Prijs);
                 foreach (Drank d in Drank)
