@@ -110,7 +110,8 @@ namespace DemoConsole
 
                             if (vw != null)
                             {
-                                klant.Bestel(vw);
+                                foreach (string alergie in klant.Bestel(vw))
+                                    Console.WriteLine(alergie);
 
                             }
 

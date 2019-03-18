@@ -58,20 +58,25 @@
   <ItemGroup>
     <Compile Include="AppCommands.cs" />
     <Compile Include="Gereedschap.cs" />
-    <Compile Include="Maaltijd.cs" />
     <Compile Include="Oefeningen\IntTests.cs" />
-    <Compile Include="Oefeningen\Recept.cs" />
     <Compile Include="Oefeningen\StringTest.cs" />
     <Compile Include="Helpers.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Readcsv.cs" />
-    <Compile Include="Werknemers\WerknemerBestand.cs" />
-    <Compile Include="Werknemers\Personen.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PersoonsBestanden\PersoonsBestanden.csproj">
+      <Project>{db1e3e92-7c1e-4d3e-bce2-307f17a27175}</Project>
+      <Name>PersoonsBestanden</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
