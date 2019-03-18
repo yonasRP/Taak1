@@ -10,11 +10,14 @@ namespace DemoConsole
     {
         Menu menu;
         Ingredient tomaat = new Ingredient { Naam = "tomaat" };
+        Ingredient kaas = new Ingredient { Naam = "kaas" };
+        Ingredient salami = new Ingredient { Naam = "salami" };
         public void InitBestand()
         {
-            menu = new Menu() { voeding = new List<Voedingswaar> {new Drank { Naam = "cola", Prijs = 2}, new Maaltijd {Naam = "tomatensoep", Prijs = 5,
-                recept = new Recept("tomatensoep", Recept.ReceptTypes.Soep, new Ingredient[] { tomaat }, "Stoof alles op, voeg water toe en kook tot het gaar is")} } };
-
+            menu = new Menu() { voeding = new List<Voedingswaar> {new Drank { Naam = "cola", Prijs = 2}, new Drank{ Naam = "water", Prijs = 1}, new Maaltijd {Naam = "tomatensoep", Prijs = 5,
+            recept = new Recept("tomatensoep", Recept.ReceptTypes.Soep, new Ingredient[] { tomaat }, "Stoof alles op, voeg water toe en kook tot het gaar is")},
+           new Maaltijd {Naam = "pizza", Prijs = 8,
+            recept = new Recept("pizza salami", Recept.ReceptTypes.Soep, new Ingredient[] { tomaat, salami, kaas }, "Maak het deeg en plaats alle ingredienten erop, dan in de oven voor 9 min")} } };
             personen.Add(new Klant() { AchterNaam = "Peeters", VoorNaam = "Lea", KortingsCode = 1, adres = new Adres("6649 N Blue Gum St",69,70116, "New Orleans","'Murrrica",2,"3"), Allergie = new List<Ingredient> {tomaat } });
             personen.Add(new Klant() { AchterNaam = "Vanderneffe", VoorNaam = "Leon", KortingsCode = 1, adres = new Adres("1268 N Red Gum St", 6969, 70116, "New Orleans", "'Murrrica", 2, "4") });
             
@@ -69,6 +72,7 @@ namespace DemoConsole
 
                             } while (test == false);
                             Console.WriteLine("Het menu");
+                            Console.WriteLine("----------------------------");
                             foreach (Maaltijd mt in menu.Maaltijden)
                             {
                                 Console.WriteLine(mt.Naam + " " + mt.Prijs + "eur");
@@ -78,9 +82,9 @@ namespace DemoConsole
                                 
                                 Console.WriteLine("Werkwijze:");
                                 Console.WriteLine(mt.recept.Werkwijze);
+                                Console.WriteLine("----------------------------");
 
                             }
-                            Console.WriteLine();
 
                             foreach (Drank dr in menu.Drank)
                             {
@@ -107,7 +111,7 @@ namespace DemoConsole
                                     Console.WriteLine("Niet gevonden.");
 
                             } while (bestelling != "stop");
-
+                            Console.WriteLine();
                             if (vw != null)
                             {
                                 foreach (string alergie in klant.Bestel(vw))
@@ -115,14 +119,16 @@ namespace DemoConsole
 
                             }
 
-                            Console.WriteLine();
+                            
                             Console.WriteLine("De bestellingen zijn:");
+                            int totaal = 0;
                             foreach (Voedingswaar v in vw)
                             {
                                 Console.WriteLine(v.Naam);
+                                totaal += v.Prijs;
                             }
 
-                            Console.WriteLine();
+                            Console.WriteLine($"Het totaal bedrag is : {totaal}eur.");
                             
 
                             
